@@ -48,12 +48,21 @@ public class CategoriaRestController {
 		return response;
 	}
 	
+	@ApiOperation(value = "Crea una nueva Categoria",
+		      notes = "No necesita parametro",
+		      response = List.class,
+		      responseContainer = "Categorias")
 	@PostMapping
 	public ResponseEntity<CategoriaResponseRest> crear(@RequestBody Categoria request) {
 		
 		ResponseEntity<CategoriaResponseRest> response = service.crearCategoria(request);
 		return response;
 	}
+	
+	@ApiOperation(value = "Actualiza la categoria por id",
+		      notes = "Necesita un id como parametro",
+		      response = List.class,
+		      responseContainer = "Categorias")
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<CategoriaResponseRest> actualizar(@RequestBody Categoria request, @PathVariable Integer id) {
@@ -62,6 +71,10 @@ public class CategoriaRestController {
 		return response;
 	}
 	
+	@ApiOperation(value = "Elimina la categoria por id",
+		      notes = "Necesita un id como parametro",
+		      response = List.class,
+		      responseContainer = "Categorias")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<CategoriaResponseRest> eliminar(@PathVariable Integer id) {
 		
