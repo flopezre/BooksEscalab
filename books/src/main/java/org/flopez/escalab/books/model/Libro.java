@@ -13,6 +13,9 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel("Model Libro")
 @Entity
 @Table(name = "libros")
 public class Libro implements Serializable{

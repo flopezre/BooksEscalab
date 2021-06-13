@@ -17,8 +17,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel("Model Usuario")
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
