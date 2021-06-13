@@ -1,5 +1,7 @@
 package org.flopez.escalab.books.controller;
 
+import java.util.List;
+
 import org.flopez.escalab.books.model.Categoria;
 import org.flopez.escalab.books.response.CategoriaResponseRest;
 import org.flopez.escalab.books.service.ICategoriaService;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/categorias")
 public class CategoriaRestController {
@@ -22,6 +26,10 @@ public class CategoriaRestController {
 	@Autowired
 	private ICategoriaService service;
 	
+	@ApiOperation(value = "Obtiene todas las categorias",
+		      notes = "",
+		      response = List.class,
+		      responseContainer = "Categorias")
 	@GetMapping
 	public ResponseEntity<CategoriaResponseRest> findCategoria() {
 		
@@ -29,6 +37,10 @@ public class CategoriaRestController {
 		return response;
 	}
 	
+	@ApiOperation(value = "Obtiene las categorias por id",
+		      notes = "Necesita un id como parametro",
+		      response = List.class,
+		      responseContainer = "Categorias")
 	@GetMapping("/{id}")
 	public ResponseEntity<CategoriaResponseRest> consultaPorId(@PathVariable("id") Integer id) {
 		
